@@ -46,6 +46,8 @@ jobs:
           echo "::error title=Cloudflare setup failed::$msg"
           exit 1
       - name: Deploy Worker
+        id: deploy
+        continue-on-error: true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -57,3 +59,9 @@ jobs:
             echo "::notice title=Worker URL::$url"
             echo "Deployed to $url" >> "$GITHUB_STEP_SUMMARY"
           fi
+      - name: Show deploy failure
+        if: steps.deploy.outcome == 'failure'
+        run: |
+          msg=$(tail -c 900 /tmp/deploy.log | perl -pe 's/\e\[[0-9;]*m//g' | tr '\n' ' ' | sed 's/%/%25/g; s/\r//g')
+          echo "::error title=Cloudflare deploy failed::$msg"
+          exit 1
