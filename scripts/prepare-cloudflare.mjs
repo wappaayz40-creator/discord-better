@@ -2,12 +2,17 @@
    the account's real D1 id. Runs in GitHub Actions with CLOUDFLARE_API_TOKEN. */
 import { readFile, writeFile } from "node:fs/promises";
 
-const token = process.env.CLOUDFLARE_API_TOKEN;
-const account = process.env.CLOUDFLARE_ACCOUNT_ID;
+const token = String(process.env.CLOUDFLARE_API_TOKEN || "").trim();
+const account = String(process.env.CLOUDFLARE_ACCOUNT_ID || "").trim();
 if (!token || !account) {
-  console.error("Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.");
+  console.error("Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID repository secret.");
   process.exit(1);
 }
+if (!/^[0-9a-f]{32}$/i.test(account)) {
+  console.error("CLOUDFLARE_ACCOUNT_ID must be exactly 32 hex characters (no URL, no spaces).");
+  process.exit(1);
+}
+console.log("Cloudflare token length:", token.length, "account id length:", account.length);
 
 const api = async (path, init = {}) => {
   const res = await fetch("https://api.cloudflare.com/client/v4/accounts/" + account + path, {
