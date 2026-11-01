@@ -8,12 +8,6 @@
     "binding": "ASSETS",
     "run_worker_first": true
   },
-  "r2_buckets": [
-    {
-      "binding": "FILES",
-      "bucket_name": "fleek-avatars"
-    }
-  ],
   "d1_databases": [
     {
       "binding": "DB",

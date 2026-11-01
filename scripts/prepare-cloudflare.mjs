@@ -1,5 +1,7 @@
-/* Creates the D1 database and R2 bucket if missing, then points wrangler at
-   the account's real D1 id. Runs in GitHub Actions with CLOUDFLARE_API_TOKEN. */
+/* Creates the D1 database if missing, then points wrangler at the account's
+   real D1 id. Runs in GitHub Actions with CLOUDFLARE_API_TOKEN.
+   R2 is optional; without it the app deploys D1-only and upload routes return
+   "storage is not configured". */
 import { readFile, writeFile } from "node:fs/promises";
 
 const token = String(process.env.CLOUDFLARE_API_TOKEN || "").trim();
@@ -39,19 +41,11 @@ if (!database) {
 }
 if (!database || !database.uuid) throw new Error("Could not determine the D1 database id.");
 
-const r2 = await api("/r2/buckets");
-const buckets = (r2 && r2.buckets) || r2 || [];
-if (!buckets.some((item) => item.name === "fleek-avatars")) {
-  console.log("Creating R2 bucket fleek-avatars…");
-  await api("/r2/buckets", { method: "POST", body: JSON.stringify({ name: "fleek-avatars" }) });
-}
-
 const config = JSON.parse(await readFile("wrangler.jsonc", "utf8"));
 config.d1_databases = config.d1_databases || [{ binding: "DB", database_name: "fleek" }];
 config.d1_databases[0].database_id = database.uuid;
-config.r2_buckets = config.r2_buckets || [{ binding: "FILES" }];
-config.r2_buckets[0].bucket_name = "fleek-avatars";
+delete config.r2_buckets;
 await writeFile("wrangler.jsonc", JSON.stringify(config, null, 2) + "\n");
 
 console.log("D1:", database.uuid);
-console.log("R2: fleek-avatars");
+console.log("R2: not configured (deploying D1-only; uploads disabled)");
