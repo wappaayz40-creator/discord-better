@@ -3,7 +3,7 @@
 A small community chat that starts empty, requires an account, and looks like
 Discord. No email, no third-party login, no nitro.
 
-Live: <https://fleeks.freebuff.page>
+Live: <https://fleek.fleek-5b7255.workers.dev>
 
 ## Accounts
 
