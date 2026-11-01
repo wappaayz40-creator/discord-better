@@ -21,7 +21,7 @@ await build({
   legalComments: "none",
 });
 
-for (const path of ["index.html", "css", "js", "assets"]) {
+for (const path of ["index.html", "landing.js", "app", "css", "js", "assets"]) {
   await cp(path, ASSETS + "/" + path, { recursive: true });
 }
 

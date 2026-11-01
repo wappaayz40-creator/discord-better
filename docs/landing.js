@@ -1,5 +1,5 @@
 (() => {
-  var APP = "https://fleek.fleek-5b7255.workers.dev";
+  var APP = "https://fleek.fleek-5b7255.workers.dev/app/";
   var win = document.getElementById("lpWindow");
   var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-lp-view]"));
   function setView(view) {

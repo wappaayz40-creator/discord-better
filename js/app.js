@@ -588,6 +588,10 @@
       return;
     }
 
+    // Render the landing immediately instead of holding the splash while the
+    // session request is in flight; signed-in users are switched to the app
+    // as soon as the session resolves.
+    showLanding();
 
     api("/api/session")
       .then(function (session) {

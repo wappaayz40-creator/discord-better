@@ -3,7 +3,7 @@
 A small community chat that starts empty, requires an account, and looks like
 Discord. No email, no third-party login, no nitro.
 
-Live: <https://fleek.fleek-5b7255.workers.dev>
+Live: <https://fleek.fleek-5b7255.workers.dev/app/>
 
 ## Accounts
 
@@ -148,7 +148,7 @@ and a 403 from the API. Rules render for both, the owner edits them, the member
 sees the fresh list and is refused (403) by the API. Text channels keep working,
 and POSTing text into a voice channel returns 400.
 
-Against production (`https://fleeks.freebuff.page`): signup, session cookie,
+Against production (`https://fleek.fleek-5b7255.workers.dev/app/`): signup, session cookie,
 login, wrong-password 401, server creation, invite-code join by a second
 account, cross-account message read/write, and 403 on a foreign origin.
 
