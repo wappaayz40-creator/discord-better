@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Aurora gradient artwork with Fleek wordmark">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f1f"/>
+      <stop offset="1" stop-color="#04060d"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="0.5" stop-color="#38d6ff"/>
+      <stop offset="1" stop-color="#2ee6c5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.85" cy="0.9" r="0.8">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#bg)"/>
+  <ellipse cx="200" cy="90" rx="280" ry="170" fill="url(#glow)" filter="url(#blur)"/>
+  <ellipse cx="540" cy="330" rx="220" ry="150" fill="url(#glow2)" filter="url(#blur)"/>
+
+  <!-- aurora ribbons -->
+  <path d="M-40 250 C 120 90, 250 320, 400 150 S 620 60, 700 170" fill="none" stroke="url(#aurora)" stroke-width="70" stroke-linecap="round" opacity="0.35" filter="url(#blur)"/>
+  <path d="M-40 250 C 120 90, 250 320, 400 150 S 620 60, 700 170" fill="none" stroke="url(#aurora)" stroke-width="2" opacity="0.85"/>
+  <path d="M-60 320 C 140 240, 250 380, 430 250 S 610 210, 720 270" fill="none" stroke="url(#aurora)" stroke-width="1.4" opacity="0.45"/>
+
+  <!-- orbit rings -->
+  <g stroke="#ffffff" fill="none" opacity="0.16">
+    <circle cx="470" cy="120" r="58"/>
+    <circle cx="470" cy="120" r="96" stroke-dasharray="2 7"/>
+    <circle cx="470" cy="120" r="136" opacity="0.5"/>
+  </g>
+  <circle cx="470" cy="120" r="7" fill="#38d6ff"/>
+  <circle cx="566" cy="120" r="4" fill="#7c5cff"/>
+
+  <!-- star field -->
+  <g fill="#ffffff" opacity="0.55">
+    <circle cx="80" cy="60" r="1.3"/><circle cx="150" cy="120" r="1"/><circle cx="230" cy="52" r="1.6"/>
+    <circle cx="330" cy="90" r="1.1"/><circle cx="390" cy="40" r="1.4"/><circle cx="600" cy="70" r="1.2"/>
+    <circle cx="120" cy="330" r="1.2"/><circle cx="300" cy="350" r="1"/><circle cx="540" cy="300" r="1.5"/>
+  </g>
+
+  <!-- wordmark -->
+  <g transform="translate(56 292)">
+    <rect x="0" y="-34" width="46" height="46" rx="14" fill="url(#aurora)"/>
+    <path d="M15 0V-24h17l-3 6.5H21v5h8l-3 6.5h-5V0z" transform="translate(0 -24)" fill="#ffffff"/>
+    <text x="60" y="4" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#f4f6ff" letter-spacing="-1">Fleek</text>
+    <text x="61" y="26" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" fill="#9aa3bd" letter-spacing="3.4">PREMIUM, FREE FOREVER</text>
+  </g>
+
+  <rect width="640" height="400" filter="url(#grain)" opacity="0.5"/>
+</svg>

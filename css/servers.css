@@ -1,0 +1,695 @@
+/* ============================================================
+   Fleek · servers
+   Rail server icons, server sidebar pieces, invite and empty
+   states, and the emoji sizing fix.
+   ============================================================ */
+
+.rail-sep {
+  width: 32px;
+  height: 2px;
+  margin: 2px 0;
+  border-radius: 1px;
+  background: var(--line);
+}
+
+.rail-server {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+}
+
+.rail-add {
+  border: 1px dashed transparent;
+}
+
+.side-invite {
+  padding: 8px 10px 12px;
+  border-top: 1px solid var(--line);
+}
+
+.side-invite .btn {
+  width: 100%;
+}
+
+.server-dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--panel-4);
+  margin: 0 6px 0 2px;
+}
+
+.server-icon {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent-2) 65%, var(--accent)));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.main-head-right {
+  margin-left: auto;
+}
+
+.welcome {
+  flex: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.welcome h2 {
+  font-size: 22px;
+}
+
+.welcome p {
+  max-width: 380px;
+  color: var(--text-3);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.invite-code {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--rail);
+  border: 1px solid var(--line);
+}
+
+.invite-code code {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.14em;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   Emoji: Twemoji images use class "emote" (data-emoji), so size
+   them here instead of letting max-width:100% blow them up.
+   ------------------------------------------------------------ */
+
+img.emote,
+img[data-emoji] {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 0 1px;
+  vertical-align: -5px;
+  object-fit: contain;
+}
+
+.emoji-item img.emote,
+.emoji-item img[data-emoji] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  vertical-align: -3px;
+}
+
+/* A message made only of emoji can be a little larger, but never huge. */
+.msg-body.emoji-only img.emote,
+.msg-body.emoji-only img[data-emoji] {
+  width: 40px;
+  height: 40px;
+  vertical-align: -10px;
+  margin: 0 2px;
+}
+
+/* ------------------------------------------------------------
+   Right-click menus on servers and channels
+   ------------------------------------------------------------ */
+
+.context-menu {
+  position: fixed;
+  z-index: 80;
+  min-width: 208px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 8px;
+  background: var(--panel-3, var(--rail));
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.context-item {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.context-item:hover,
+.context-item:focus-visible {
+  background: var(--accent);
+  color: #fff;
+  outline: none;
+}
+
+.context-item.is-danger {
+  color: #ff8f8f;
+}
+
+.context-item.is-danger:hover,
+.context-item.is-danger:focus-visible {
+  background: #c0392b;
+  color: #fff;
+}
+
+.context-sep {
+  height: 1px;
+  margin: 4px 2px;
+  background: var(--line);
+}
+
+/* ------------------------------------------------------------
+   Profile card (click a member or an author name)
+   ------------------------------------------------------------ */
+
+.av--lg {
+  width: 64px;
+  height: 64px;
+  font-size: 22px;
+  border-radius: 50%;
+}
+
+.profile-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.profile-id {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.profile-id h2 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.profile-handle {
+  color: var(--text-3);
+  font-size: 14px;
+}
+
+.profile-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--online, #23a55a);
+}
+
+.profile-status.is-offline .status-dot {
+  background: var(--text-3);
+}
+
+.profile-note {
+  margin-top: 10px;
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.profile-chip {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--panel-3, var(--rail));
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 12px;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Author name and avatar open the profile, but should not look like buttons. */
+.msg-author {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.msg-author:hover {
+  text-decoration: underline;
+}
+
+.msg-avatar {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------
+   Channel types: voice, forum, announcement, rules
+   ------------------------------------------------------------ */
+
+.ico--xs {
+  width: 14px;
+  height: 14px;
+}
+
+.row-tag {
+  margin-left: auto;
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-3);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* People currently in a voice channel, nested under its sidebar row. */
+.voice-people {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 2px 0 6px;
+  padding-left: 20px;
+}
+
+.voice-person {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 12.5px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.voice-person:hover {
+  background: var(--panel-3, rgba(255, 255, 255, 0.06));
+  color: var(--text);
+}
+
+.voice-person .av--xs {
+  width: 18px;
+  height: 18px;
+  font-size: 8px;
+}
+
+.voice-person .ico--xs {
+  margin-left: auto;
+  color: var(--text-3);
+}
+
+.voice-person-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Voice stage */
+.voice-stage {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+}
+
+.voice-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.voice-tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--rail);
+}
+
+.voice-tile.is-sharing {
+  border-color: var(--accent);
+}
+
+.voice-video {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  object-fit: contain;
+}
+
+.voice-avatar {
+  display: grid;
+  place-items: center;
+}
+
+.voice-tile-foot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.66));
+}
+
+.voice-name {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.voice-name:hover {
+  text-decoration: underline;
+}
+
+.voice-you {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.voice-live {
+  margin-left: auto;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #eb459e;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.voice-tile .ico--xs.is-muted {
+  color: #ff8f8f;
+}
+
+.voice-note,
+.voice-error {
+  max-width: 720px;
+  margin-top: 18px;
+  color: var(--text-3);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.voice-error {
+  color: #ff8f8f;
+}
+
+.voice-empty {
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: var(--text-3);
+}
+
+/* Forum */
+.forum-stage {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 24px 32px;
+}
+
+.forum-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 900px;
+}
+
+.forum-post {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--rail);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.forum-post:hover {
+  border-color: var(--accent);
+  background: var(--panel-3, var(--rail));
+}
+
+.forum-post-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.forum-post-title {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.forum-post-preview {
+  overflow: hidden;
+  color: var(--text-3);
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.forum-meta {
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+.forum-replies {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+.forum-back {
+  margin-bottom: 12px;
+}
+
+.forum-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--rail);
+}
+
+.forum-detail h2 {
+  font-size: 20px;
+}
+
+.forum-body {
+  max-width: 780px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.forum-body p {
+  margin: 0 0 8px;
+}
+
+.forum-replies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.forum-reply-row {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-left: 2px solid var(--line);
+}
+
+.forum-reply-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 780px;
+  margin-top: 16px;
+}
+
+.forum-reply-form textarea {
+  flex: 1;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--rail);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+/* Rules */
+.rules-stage {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 24px;
+}
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+  padding-left: 22px;
+  color: var(--text);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.rules-list li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.read-only-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--text-3);
+  font-size: 13px;
+}
+
+/* Channel type picker */
+.channel-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 14px 0 18px;
+}
+
+.channel-type {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--rail);
+  color: var(--text-2);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.channel-type:hover {
+  border-color: var(--accent);
+}
+
+.channel-type.is-active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--text);
+}
+
+.channel-type-name {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.channel-type-note {
+  color: var(--text-3);
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+#rulesText,
+#newPostBody {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--rail);
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}

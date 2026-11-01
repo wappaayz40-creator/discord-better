@@ -1,0 +1,337 @@
+/* ============================================================
+   Fleek · auth form + settings dialog
+   Discord-style settings: a left nav and a scrolling pane.
+   ============================================================ */
+
+.auth-tabs {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 4px;
+  margin: 6px 0 4px;
+  border-radius: 6px;
+  background: var(--panel-3);
+}
+
+.auth-tabs button {
+  flex: 1;
+  height: 32px;
+  border-radius: 4px;
+  color: var(--text-3);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+
+.auth-tabs button:hover {
+  color: var(--text-2);
+}
+
+.auth-tabs button.is-active {
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow-1);
+}
+
+.auth-form {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  margin-top: 6px;
+}
+
+.auth-form .field span {
+  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.auth-form .field input {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 3px;
+  background: var(--rail);
+  border: 1px solid transparent;
+  color: var(--text);
+  outline: 0;
+}
+
+.auth-form .field input:focus {
+  border-color: var(--accent);
+}
+
+/* Keep the @ prefix from sitting on top of the placeholder. */
+.auth-form .prefix input {
+  padding-left: 26px;
+}
+
+.auth-form .btn--lg {
+  margin-top: 2px;
+}
+
+/* ------------------------------------------------------------
+   Settings dialog
+   ------------------------------------------------------------ */
+
+.modal.settings {
+  position: relative;
+  width: min(700px, 100%);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  overflow: hidden;
+  max-height: 80vh;
+}
+
+.settings-nav {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  padding: 18px 10px;
+  background: var(--rail);
+  border-right: 1px solid var(--line);
+}
+
+.settings-nav button {
+  padding: 7px 10px;
+  border-radius: 4px;
+  text-align: left;
+  color: var(--text-3);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.settings-nav button:hover {
+  background: var(--panel-3);
+  color: var(--text-2);
+}
+
+.settings-nav button.is-active {
+  background: var(--panel-3);
+  color: var(--text);
+}
+
+.settings-body {
+  padding: 22px 22px 24px;
+  overflow-y: auto;
+  min-height: 360px;
+}
+
+.settings-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.settings-body h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
+  padding-right: 32px;
+}
+
+.settings-lead {
+  color: var(--text-3);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.settings-row:last-of-type {
+  border-bottom: 0;
+}
+
+.settings-row .label {
+  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.settings-row .value {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.settings-note {
+  margin-top: 14px;
+  color: var(--text-3);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.profile-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0 20px;
+}
+
+.profile-block .avatar-preview {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: none;
+  position: relative;
+}
+
+.profile-block .avatar-preview .av {
+  width: 84px;
+  height: 84px;
+}
+
+.profile-block .avatar-preview .av::after {
+  display: none;
+}
+
+.profile-block .avatar-preview .avatar-edit {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 3px 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--dur-1) var(--ease);
+}
+
+.profile-block .avatar-preview:hover .avatar-edit {
+  opacity: 1;
+}
+
+.profile-block .profile-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.settings-body .field {
+  margin-bottom: 14px;
+  max-width: 320px;
+}
+
+.settings-body .field label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.settings-body .field input {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 3px;
+  background: var(--rail);
+  border: 1px solid transparent;
+  color: var(--text);
+  outline: 0;
+}
+
+.settings-body .field input:focus {
+  border-color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   Theme picker
+   ------------------------------------------------------------ */
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.theme-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--panel-2);
+  text-align: left;
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+
+.theme-card:hover {
+  border-color: var(--panel-4);
+}
+
+.theme-card.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.theme-swatch {
+  display: flex;
+  height: 58px;
+}
+
+.theme-swatch span {
+  flex: 1;
+}
+
+.theme-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 8px 9px;
+  color: var(--text-2);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.theme-name .ico {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+@media (max-width: 620px) {
+  .modal.settings {
+    grid-template-columns: 1fr;
+    max-height: 88vh;
+  }
+
+  .settings-nav {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    padding: 10px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .settings-nav button {
+    text-align: center;
+    font-size: 12.5px;
+    padding: 7px 6px;
+  }
+
+  .settings-body {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .theme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

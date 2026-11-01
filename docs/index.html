@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Fleek — community, but better</title>
+    <meta name="description" content="Fleek is a small, fast community chat app. Servers, voice, forums and DMs — no paywalls." />
+    <meta name="theme-color" content="#0b0d12" />
+    <link rel="icon" type="image/png" href="assets/fleek.png" />
+    <link rel="apple-touch-icon" href="assets/fleek.png" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/ui.css" />
+    <link rel="stylesheet" href="css/landing.css" />
+  </head>
+  <body class="landing-body">
+    <div class="landing-progress" id="landingProgress" aria-hidden="true"></div>
+    <button type="button" class="landing-top" id="landingTop" aria-label="Back to top">↑</button>
+    <section class="landing" id="landing">
+      <header class="landing-nav">
+        <a class="landing-brand" href="/"><img src="assets/fleek.png?v=50" alt="" /><span>Fleek</span></a>
+        <nav class="landing-links"><button type="button" data-lp-view="features">Features</button><button type="button" data-lp-view="download">Desktop</button></nav>
+        <div class="landing-nav-actions">
+          <button class="btn btn--ghost" type="button" data-go="app">Sign in</button>
+          <button class="btn btn--primary" type="button" data-go="app">Create account</button>
+        </div>
+      </header>
+      <main class="landing-hero">
+        <div class="landing-copy">
+          <span class="landing-eyebrow">COMMUNITY, BUT BETTER</span>
+          <h1>Your people.<br />Your channels.<br /><em>No paywalls.</em></h1>
+          <p class="landing-lede">Fleek is a small, fast chat app with servers, voice, forums and DMs. A handle and a password are the whole account.</p>
+          <div class="landing-cta">
+            <button class="btn btn--primary btn--lg" type="button" data-go="app">Open Fleek</button>
+            <button class="btn btn--ghost btn--lg" type="button" data-go="app">I have an account</button>
+          </div>
+          <p class="landing-small">Free forever · no email · no Nitro</p>
+        </div>
+        <div class="landing-preview">
+          <div class="lp-window" id="lpWindow">
+            <div class="lp-rail">
+              <span class="lp-logo">F</span>
+              <button type="button" class="lp-dot is-active" data-lp-view="chat" aria-label="Chat">#</button>
+              <button type="button" class="lp-dot" data-lp-view="features" aria-label="Features">✦</button>
+              <button type="button" class="lp-dot" data-lp-view="download" aria-label="Download">↓</button>
+            </div>
+            <div class="lp-side">
+              <div class="lp-title">Fleeks <span class="lp-badge">✓</span></div>
+              <div class="lp-row is-active"># general</div>
+              <div class="lp-row"># introductions</div>
+              <div class="lp-row"># media</div>
+              <div class="lp-cat">VOICE</div>
+              <div class="lp-row">🔊 Lounge</div>
+            </div>
+            <div class="lp-chat">
+              <div class="lp-panel is-active" data-lp-panel="chat">
+                <div class="lp-head"># general</div>
+                <div class="lp-msg"><span class="lp-av">F</span><div><b>Fleek</b> <small>3:16 PM</small><p>Welcome to Fleeks — everything here is free.</p></div></div>
+                <div class="lp-msg"><span class="lp-av lp-av--b">S</span><div><b>sc0pes</b> <small>3:17 PM</small><p>voice works, themes work, no nitro anywhere</p></div></div>
+                <div class="lp-composer">Message #general</div>
+              </div>
+              <div class="lp-panel" data-lp-panel="features" hidden>
+                <div class="lp-head">Features</div>
+                <div class="lp-list">
+                  <div class="lp-item"><b>Servers, roles, forums</b><span>Categories, rules, logs and moderation — free.</span></div>
+                  <div class="lp-item"><b>Voice that just works</b><span>Peer-to-peer rooms with speaking rings and mute sounds.</span></div>
+                  <div class="lp-item"><b>Make it yours</b><span>Custom fonts, gradients, glow, banners and CSS profiles.</span></div>
+                  <div class="lp-item"><b>Private by default</b><span>No global directory, no email, handle + password only.</span></div>
+                </div>
+                <button type="button" class="lp-btn" data-go="app">Create your account</button>
+              </div>
+              <div class="lp-panel" data-lp-panel="download" hidden>
+                <div class="lp-head">Desktop</div>
+                <div class="lp-download">
+                  <b>Install Fleek</b>
+                  <p>Own window, taskbar icon, no address bar. Installs from your browser — a packaged .exe isn't available yet.</p>
+                  <div class="lp-download-actions">
+                    <button type="button" class="lp-btn" data-go="install">Install app</button>
+                    <button type="button" class="lp-btn lp-btn--ghost" data-go="app">Use in browser</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="lp-hint">This is the real layout — tap the icons.</p>
+        </div></main>
+      <footer class="landing-foot"><span>Fleek</span><span>Handle + password. That's it.</span></footer>
+    </section>
+    <script src="landing.js"></script>
+  </body>
+</html>

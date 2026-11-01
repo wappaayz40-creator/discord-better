@@ -1,0 +1,13 @@
+node_modules/
+freebuff-sites-build/
+.tools/
+.wrangler/
+.dev.vars
+.server.log
+.server.pid
+.wrangler.log
+.wrangler.pid
+npm-debug.log*
+.wrangler-*.log
+.wrangler-*.pid
+artifacts/
